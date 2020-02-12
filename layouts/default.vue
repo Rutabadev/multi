@@ -37,9 +37,7 @@
       </v-btn>
       <v-toolbar-title v-text="title" />
       <v-spacer />
-      <v-btn @click.stop="rightDrawer = !rightDrawer" icon>
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
+      Hellooooo! I Babu Frik.
     </v-app-bar>
     <v-content>
       <v-container>
