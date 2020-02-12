@@ -45,17 +45,42 @@ export default {
     success: false,
     valid: false,
     username: '',
-    usernameRules: [
-      (v) => !!v || 'Username is required',
-      (v) => v.length <= 10 || 'Username must be less than 10 characters',
-      (v) => v.length > 3 || 'Username must be less more 3 characters'
-    ],
-    password: '',
-    passwordRules: [
-      (v) => !!v || 'Password is required',
-      (v) => /.+\..+@.+\..+/.test(v) || 'Password must be valid'
-    ]
+    password: ''
   }),
+
+  computed: {
+    usernameRules() {
+      const rules = []
+
+      const rule0 = (v) => !!v || 'Username is required'
+      rules.push(rule0)
+
+      const rule1 = (v) =>
+        v.length <= 10 || 'Username must be less than 10 characters'
+      rules.push(rule1)
+
+      const rule2 = (v) =>
+        v.length > 3 || 'Username must be less more 3 characters'
+      rules.push(rule2)
+
+      return rules
+    },
+    passwordRules() {
+      const rules = []
+
+      const rule0 = (v) => !!v || 'Password is required'
+      rules.push(rule0)
+
+      const rule1 = (v) => /.+\..+@.+\..+/.test(v) || 'Password must be valid'
+      rules.push(rule1)
+
+      const rule2 = (v) =>
+        v === this.username || 'Password and username must be equal'
+      rules.push(rule2)
+
+      return rules
+    }
+  },
 
   methods: {
     validate() {
