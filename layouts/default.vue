@@ -86,6 +86,11 @@ export default {
           icon: 'mdi-motorbike',
           title: 'Wagadou',
           to: '/wagadoudou'
+        },
+        {
+          icon: 'mdi-account-edit',
+          title: 'Form',
+          to: '/form'
         }
       ],
       miniVariant: false,
