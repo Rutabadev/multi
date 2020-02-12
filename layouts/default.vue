@@ -81,6 +81,11 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'Inspire',
           to: '/inspire'
+        },
+        {
+          icon: 'mdi-motorbike',
+          title: 'Wagadou',
+          to: '/wagadoudou'
         }
       ],
       miniVariant: false,
