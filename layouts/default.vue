@@ -1,29 +1,12 @@
 <template>
-  <v-app dark>
+  <v-app>
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
       :clipped="clipped"
       fixed
       app
-    >
-      <v-list>
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          :to="item.to"
-          router
-          exact
-        >
-          <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title v-text="item.title" />
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
+    ></v-navigation-drawer>
     <v-app-bar :clipped-left="clipped" fixed app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-btn @click.stop="miniVariant = !miniVariant" icon>
@@ -48,9 +31,17 @@
         <nuxt />
       </v-container>
     </v-content>
-    <v-footer :fixed="fixed" app>
-      <span>&copy; 2019</span>
-    </v-footer>
+    <v-bottom-navigation app grow shift>
+      <v-btn
+        v-for="(item, i) in items"
+        :key="i"
+        :to="item.to"
+        value="item.title.toLowerCase()"
+      >
+        <span>{{ item.title }}</span>
+        <v-icon>{{ item.icon }}</v-icon>
+      </v-btn>
+    </v-bottom-navigation>
   </v-app>
 </template>
 
@@ -71,7 +62,11 @@ export default {
           icon: 'mdi-account-edit',
           title: 'Form',
           to: '/form'
+        },
+        {
           icon: 'mdi-information',
+          title: 'About',
+          to: '/about'
         }
       ],
       miniVariant: false,
