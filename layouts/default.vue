@@ -37,7 +37,11 @@
       </v-btn>
       <v-toolbar-title v-text="title" />
       <v-spacer />
-      Hellooooo! I Babu Frik.
+      <v-btn @click="$vuetify.theme.dark = !$vuetify.theme.dark" icon>
+        <v-icon>{{
+          this.$vuetify.theme.dark ? 'mdi-brightness-4' : 'mdi-brightness-7'
+        }}</v-icon>
+      </v-btn>
     </v-app-bar>
     <v-content>
       <v-container>
