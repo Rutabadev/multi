@@ -64,16 +64,6 @@ export default {
           to: '/'
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
-        },
-        {
-          icon: 'mdi-motorbike',
-          title: 'Wagadou',
-          to: '/wagadoudou'
-        },
-        {
           icon: 'mdi-account-edit',
           title: 'Form',
           to: '/form'
