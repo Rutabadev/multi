@@ -67,6 +67,7 @@ export default {
           icon: 'mdi-account-edit',
           title: 'Form',
           to: '/form'
+          icon: 'mdi-information',
         }
       ],
       miniVariant: false,
