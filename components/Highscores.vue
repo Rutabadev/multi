@@ -34,8 +34,6 @@ export default {
         snapshot.forEach((doc) => {
           this.highscores.push({ ...doc.data(), id: doc.id })
         })
-        // eslint-disable-next-line no-console
-        console.log(this.highscores)
       })
   }
 }
