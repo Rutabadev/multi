@@ -34,14 +34,14 @@ export default {
     return {
       items: [
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
+          icon: 'mdi-account-edit',
+          title: 'Form',
           to: '/'
         },
         {
-          icon: 'mdi-account-edit',
-          title: 'Form',
-          to: '/form'
+          icon: 'mdi-table',
+          title: 'Highscores',
+          to: '/highscores'
         },
         {
           icon: 'mdi-information',
