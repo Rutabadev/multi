@@ -14,13 +14,8 @@
         <nuxt />
       </v-container>
     </v-content>
-    <v-bottom-navigation
-      app
-      grow
-      shift
-      color="primary"
-    >
-      <v-btn v-for="(item, i) in items" :key="i" :to="item.to">
+    <v-bottom-navigation app grow shift color="primary">
+      <v-btn v-for="(item, i) in items" :key="i" :to="item.to" nuxt>
         <span>{{ item.title }}</span>
         <v-icon>{{ item.icon }}</v-icon>
       </v-btn>
