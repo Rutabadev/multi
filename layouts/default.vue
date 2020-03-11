@@ -3,6 +3,11 @@
     <v-app-bar fixed app>
       <v-toolbar-title v-text="title" />
       <v-spacer />
+      <v-btn @click="googleSignIn" icon>
+        <v-icon v-if="!user">mdi-account</v-icon>
+        <v-img v-if="user" :src="user.photoURL" max-width="30" max-height="30">
+        </v-img>
+      </v-btn>
       <v-btn @click="$vuetify.theme.dark = !$vuetify.theme.dark" icon>
         <v-icon>{{
           this.$vuetify.theme.dark ? 'mdi-brightness-4' : 'mdi-brightness-7'
@@ -24,6 +29,8 @@
 </template>
 
 <script>
+import firebase from 'firebase'
+
 export default {
   data() {
     return {
@@ -44,7 +51,19 @@ export default {
           to: '/about'
         }
       ],
-      title: 'Vuetify.js'
+      title: 'Vuetify.js',
+      user: null,
+      provider: new firebase.auth.GoogleAuthProvider()
+    }
+  },
+  methods: {
+    googleSignIn() {
+      firebase
+        .auth()
+        .signInWithPopup(this.provider)
+        .then((result) => {
+          this.user = result.user
+        })
     }
   }
 }
