@@ -52,8 +52,12 @@ export default {
         }
       ],
       title: 'Vuetify.js',
-      user: null,
       provider: new firebase.auth.GoogleAuthProvider()
+    }
+  },
+  computed: {
+    user() {
+      return this.$store.state.user.user
     }
   },
   methods: {
@@ -62,7 +66,7 @@ export default {
         .auth()
         .signInWithPopup(this.provider)
         .then((result) => {
-          this.user = result.user
+          this.$store.commit('user/setUser', result.user)
         })
     }
   }
